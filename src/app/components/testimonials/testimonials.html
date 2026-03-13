@@ -5,17 +5,18 @@
             Discover why leading companies trust DigitalBond to power their digital transformation.
         </p>
 
-        <div class="carousel-wrapper">
-            <button class="carousel-btn prev" (click)="prev()" aria-label="Previous testimonial">
+        <div class="carousel-wrapper" role="region" aria-roledescription="carousel" aria-label="Client Testimonials">
+            <button class="carousel-btn prev" (click)="prev()" aria-label="Previous testimonial" aria-controls="carousel-track">
                 <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="15 18 9 12 15 6"></polyline>
                 </svg>
             </button>
 
-            <div class="carousel-track">
+            <div id="carousel-track" class="carousel-track" aria-live="polite">
                 @for (testimonial of testimonials; track testimonial.name; let i = $index) {
-                <div class="testimonial-card" [class.active]="i === currentIndex()"
+                <div class="testimonial-card" role="group" aria-roledescription="slide" [attr.aria-label]="(i + 1) + ' of ' + testimonials.length"
+                    [class.active]="i === currentIndex()"
                     [class.prev]="i === (currentIndex() - 1 + testimonials.length) % testimonials.length"
                     [class.next]="i === (currentIndex() + 1) % testimonials.length">
                     <div class="card-inner">
@@ -39,7 +40,7 @@
                 }
             </div>
 
-            <button class="carousel-btn next" (click)="next()" aria-label="Next testimonial">
+            <button class="carousel-btn next" (click)="next()" aria-label="Next testimonial" aria-controls="carousel-track">
                 <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="9 18 15 12 9 6"></polyline>
@@ -50,7 +51,7 @@
         <div class="carousel-dots">
             @for (testimonial of testimonials; track testimonial.name; let i = $index) {
             <button class="dot" [class.active]="i === currentIndex()" (click)="goTo(i)"
-                [attr.aria-label]="'Go to testimonial ' + (i + 1)"></button>
+                [attr.aria-label]="'Go to testimonial ' + (i + 1)" aria-controls="carousel-track"></button>
             }
         </div>
     </div>

@@ -5,7 +5,7 @@
       <span class="brand-text">Digital<span class="brand-accent">Bond</span></span>
     </a>
 
-    <ul class="nav-links" [class.active]="isMobileMenuOpen()">
+    <ul id="nav-menu" class="nav-links" [class.active]="isMobileMenuOpen()">
       <li><a href="#hero" (click)="scrollTo($event, 'hero')">Home</a></li>
       <li><a href="#testimonials" (click)="scrollTo($event, 'testimonials')">Testimonials</a></li>
       <li><a href="#contact" (click)="scrollTo($event, 'contact')">Contact</a></li>
@@ -14,6 +14,8 @@
     <button
       class="hamburger"
       [class.active]="isMobileMenuOpen()"
+      [attr.aria-expanded]="isMobileMenuOpen()"
+      aria-controls="nav-menu"
       (click)="toggleMobileMenu()"
       aria-label="Toggle navigation menu"
     >
