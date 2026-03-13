@@ -1,14 +1,14 @@
 <nav class="navbar" [class.scrolled]="isScrolled()" id="navbar">
   <div class="navbar-container">
-    <a class="navbar-brand" (click)="scrollTo('hero')">
-      <span class="brand-icon">⬡</span>
+    <a href="#hero" class="navbar-brand" (click)="scrollTo($event, 'hero')">
+      <span class="brand-icon" aria-hidden="true">⬡</span>
       <span class="brand-text">Digital<span class="brand-accent">Bond</span></span>
     </a>
 
     <ul class="nav-links" [class.active]="isMobileMenuOpen()">
-      <li><a (click)="scrollTo('hero')">Home</a></li>
-      <li><a (click)="scrollTo('testimonials')">Testimonials</a></li>
-      <li><a (click)="scrollTo('contact')">Contact</a></li>
+      <li><a href="#hero" (click)="scrollTo($event, 'hero')">Home</a></li>
+      <li><a href="#testimonials" (click)="scrollTo($event, 'testimonials')">Testimonials</a></li>
+      <li><a href="#contact" (click)="scrollTo($event, 'contact')">Contact</a></li>
     </ul>
 
     <button

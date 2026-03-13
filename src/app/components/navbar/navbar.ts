@@ -3,7 +3,6 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
@@ -36,7 +35,8 @@ export class Navbar implements AfterViewInit, OnDestroy {
     this.isMobileMenuOpen.set(false);
   }
 
-  scrollTo(sectionId: string): void {
+  scrollTo(event: Event, sectionId: string): void {
+    event.preventDefault();
     this.closeMobileMenu();
     if (isPlatformBrowser(this.platformId)) {
       const el = document.getElementById(sectionId);

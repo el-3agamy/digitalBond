@@ -1,20 +1,16 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Modal } from '../modal/modal';
 
 @Component({
     selector: 'app-contact-form',
-    standalone: true,
-    imports: [ReactiveFormsModule, Modal],
+    imports: [ReactiveFormsModule],
     templateUrl: './contact-form.html',
     styleUrl: './contact-form.css',
 })
 export class ContactForm {
     private fb = inject(FormBuilder);
     private router = inject(Router);
-
-    showModal = signal(false);
 
     contactForm = this.fb.group({
         name: ['', [Validators.required, Validators.minLength(2)]],
@@ -25,16 +21,10 @@ export class ContactForm {
 
     onSubmit(): void {
         if (this.contactForm.valid) {
-            this.showModal.set(true);
+            this.router.navigate(['/done']);
         } else {
             this.contactForm.markAllAsTouched();
         }
-    }
-
-    closeModal(): void {
-        this.showModal.set(false);
-        this.contactForm.reset();
-        this.router.navigate(['/done']);
     }
 
     get name() { return this.contactForm.get('name'); }

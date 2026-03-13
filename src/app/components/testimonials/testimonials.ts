@@ -12,7 +12,6 @@ interface Testimonial {
 
 @Component({
     selector: 'app-testimonials',
-    standalone: true,
     templateUrl: './testimonials.html',
     styleUrl: './testimonials.css',
 })
