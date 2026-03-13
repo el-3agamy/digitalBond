@@ -1,0 +1,25 @@
+<nav class="navbar" [class.scrolled]="isScrolled()" id="navbar">
+  <div class="navbar-container">
+    <a class="navbar-brand" (click)="scrollTo('hero')">
+      <span class="brand-icon">⬡</span>
+      <span class="brand-text">Digital<span class="brand-accent">Bond</span></span>
+    </a>
+
+    <ul class="nav-links" [class.active]="isMobileMenuOpen()">
+      <li><a (click)="scrollTo('hero')">Home</a></li>
+      <li><a (click)="scrollTo('testimonials')">Testimonials</a></li>
+      <li><a (click)="scrollTo('contact')">Contact</a></li>
+    </ul>
+
+    <button
+      class="hamburger"
+      [class.active]="isMobileMenuOpen()"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle navigation menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>

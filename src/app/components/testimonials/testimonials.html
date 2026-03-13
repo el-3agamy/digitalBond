@@ -1,0 +1,57 @@
+<section class="testimonials-section" id="testimonials">
+    <div class="container">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">
+            Discover why leading companies trust DigitalBond to power their digital transformation.
+        </p>
+
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev" (click)="prev()" aria-label="Previous testimonial">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <div class="carousel-track">
+                @for (testimonial of testimonials; track testimonial.name; let i = $index) {
+                <div class="testimonial-card" [class.active]="i === currentIndex()"
+                    [class.prev]="i === (currentIndex() - 1 + testimonials.length) % testimonials.length"
+                    [class.next]="i === (currentIndex() + 1) % testimonials.length">
+                    <div class="card-inner">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-content">{{ testimonial.content }}</p>
+                        <div class="stars">
+                            @for (star of getStars(testimonial.rating); track star) {
+                            <span class="star">★</span>
+                            }
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="avatar">{{ testimonial.avatar }}</div>
+                            <div class="author-info">
+                                <span class="author-name">{{ testimonial.name }}</span>
+                                <span class="author-position">{{ testimonial.position }}, {{ testimonial.company
+                                    }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+
+            <button class="carousel-btn next" (click)="next()" aria-label="Next testimonial">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <div class="carousel-dots">
+            @for (testimonial of testimonials; track testimonial.name; let i = $index) {
+            <button class="dot" [class.active]="i === currentIndex()" (click)="goTo(i)"
+                [attr.aria-label]="'Go to testimonial ' + (i + 1)"></button>
+            }
+        </div>
+    </div>
+</section>
