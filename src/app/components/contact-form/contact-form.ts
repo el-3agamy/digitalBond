@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
     imports: [ReactiveFormsModule],
     templateUrl: './contact-form.html',
     styleUrl: './contact-form.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactForm {
     private fb = inject(FormBuilder);

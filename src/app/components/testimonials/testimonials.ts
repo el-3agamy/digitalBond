@@ -1,4 +1,4 @@
-import { Component, signal, inject, PLATFORM_ID, OnInit, OnDestroy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject, PLATFORM_ID, OnInit, OnDestroy } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { ITestimonial } from '../../types/ITestimonial';
 import { TestimonialService } from '../../services/testimonial.service';
@@ -9,6 +9,7 @@ import { TestimonialService } from '../../services/testimonial.service';
     selector: 'app-testimonials',
     templateUrl: './testimonials.html',
     styleUrl: './testimonials.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Testimonials implements OnInit, OnDestroy {
     private platformId = inject(PLATFORM_ID);

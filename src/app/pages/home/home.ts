@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Testimonials } from '../../components/testimonials/testimonials';
 import { ContactForm } from '../../components/contact-form/contact-form';
 
@@ -7,5 +7,6 @@ import { ContactForm } from '../../components/contact-form/contact-form';
     imports: [Testimonials, ContactForm],
     templateUrl: './home.html',
     styleUrl: './home.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home { }

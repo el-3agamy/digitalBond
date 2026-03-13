@@ -53,10 +53,22 @@
 </section>
 
 <!-- Testimonials -->
-<app-testimonials />
+<div class="deferred-section">
+    @defer (on viewport) {
+        <app-testimonials />
+    } @placeholder {
+        <div style="min-height: 400px; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">Loading Testimonials...</div>
+    }
+</div>
 
 <!-- Contact Form -->
-<app-contact-form />
+<div class="deferred-section">
+    @defer (on viewport) {
+        <app-contact-form />
+    } @placeholder {
+        <div style="min-height: 600px; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">Loading Contact Form...</div>
+    }
+</div>
 
 </main>
 

@@ -1,10 +1,11 @@
-import { Component, signal, inject, PLATFORM_ID, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject, PLATFORM_ID, AfterViewInit, OnDestroy } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Navbar implements AfterViewInit, OnDestroy {
   private platformId = inject(PLATFORM_ID);
