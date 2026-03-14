@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/(css|js|img|assets|favicon.ico|robots.txt|sitemap.xml)",
+      "destination": "/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}
