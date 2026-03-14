@@ -11,5 +11,4 @@ export const formGuardGuard: CanActivateFn = (route, state) => {
   } else {
     return router.parseUrl('/'); 
   }
-  return true;
 };

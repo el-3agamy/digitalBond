@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 import { TitleStrategy, provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -7,7 +7,6 @@ import { CustomTitleStrategy } from './providers/custom-title-strategy';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes), provideClientHydration(withEventReplay()),
     { provide: TitleStrategy, useClass: CustomTitleStrategy }
