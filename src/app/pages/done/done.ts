@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FormStateService } from './../../services/form-state.service';
+import { Component, ChangeDetectionStrategy, OnDestroy, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,4 +9,9 @@ import { RouterLink } from '@angular/router';
     styleUrl: './done.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Done { }
+export class Done implements OnDestroy {
+    private formStateService = inject(FormStateService)
+    ngOnDestroy(): void {
+        this.formStateService.setSubmitted(false)
+    }
+ }
