@@ -150,4 +150,14 @@
         width: 100%;
         display: block;
     }
+
+    /* Fixed navbar on scroll for mobile */
+    .navbar.scrolled {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 0.8rem 0; /* Slightly more compact on scroll */
+    }
 }
